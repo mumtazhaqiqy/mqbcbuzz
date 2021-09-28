@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <title><%= config.title %></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/js/uikit-icons.min.js"></script>
+    <style>
+        h1 { color: #d54d7b; font-family: "Great Vibes", cursive; font-size: 165px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
+        .pointer { cursor: pointer }
+        button.rounded-button {
+          height: 300px;
+          width: 300px;
+          border-radius: 50%;
+          border: 1px solid red;
+          font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom" id="login">
+    <h1 class="uk-article-title uk-text-center"><%= config.title %></h1>
+    <hr class="uk-divider-icon">
+    <div class="uk-flex" data-uk-grid-margin="">
+        <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+            <h3 class="uk-card-title uk-text-center">Let's buzz!</h3>
+            <form id="login_form">
+                <div class="uk-margin">
+                    <input name="id" class="uk-input uk-form-large" placeholder="Your name" type="hidden" />
+                    <div class="uk-inline uk-width-1-1">
+                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                        <input name="name" class="uk-input uk-form-large" placeholder="Your name" type="text">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                        <label>Join a team!</label>
+                        <select name="team" class="uk-select">
+                            <option selected></option>
+                            <% data.teams.forEach(function(team){ %>
+                            <option value="<%= team.name %>"><%= team.name %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+                    <hr class="uk-divider-small uk-text-center">
+                    <div class="uk-margin">
+                        <div class="uk-inline uk-width-1-1">
+                            <label>Or create one!</label>
+                            <input name="create_team" class="uk-input uk-form-large" placeholder="Your team name" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom" id="buzz_interface" hidden>
+    <h1 class="uk-article-title uk-text-center"><%= config.title %></h1>
+    <hr class="uk-divider-icon">
+    <div class="uk-flex" data-uk-grid-margin="">
+        <div class="uk-margin uk-width-large uk-margin-auto uk-text-center uk-card uk-card-default uk-card-body uk-box-shadow-large uk-margin-auto" style="padding-bottom: 50px;">
+            <p id="info_me" class="uk-text-center">Info</p>
+            <button id="buzz_button" class="rounded-button">BUZZ!!!</button>
+            <button id="buzz_locked" class="rounded-button uk-hidden">LOCKED</button>
+        </div>
+    </div>
+    <div class="uk-flex" id="buzzez">
+        <div id="buzz" class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large uk-margin-auto">
+            <h2 class="uk-title uk-text-center">List Buzz</h2>
+            <hr class="uk-text-center uk-divider-small">
+            <ul id="buzz_list" class="uk-list uk-list-striped">
+                <% data.buzzes.forEach(function(user){ %>
+                <li>[<%= user.team %>] <%= user.name %></li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+    <div class="uk-flex" data-uk-grid-margin="" id="score">
+        <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large uk-margin-auto">
+            <p class="uk-text-center uk-text-lighter">Score</p>
+            <table id="score_list" class="uk-table uk-table-divider">
+                <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
+                <tr>
+                    <td><%= team.name %></td>
+                    <td><%= team.point %></td>
+                </tr>
+                <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="uk-flex" data-uk-grid-margin="">
+        <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body" style="padding-bottom: 50px;">
+            <!-- <button id="change_team" class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-border-rounded">Change team</button> -->
+        </div>
+    </div>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/common/event.js"></script>
+<script src="/join/user.js"></script>
+<script src="/join/score.js"></script>
+<script src="/join/buzz.js"></script>
+<script src="/join/clearbuzz.js"></script>
+<script src="/join/store.js"></script>
+<script src="/join/index.js"></script>
+</body>
+
+</html>
