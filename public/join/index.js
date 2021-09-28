@@ -2,7 +2,7 @@ const socket = io();
 const store = new Store();
 const score = new Score(socket, document.querySelector('#score'));
 const buzz = new Buzz(socket, document.querySelector('#buzz'));
-const clearbuzz = new Clearbuzz(socket, document.querySelector('#buzz_button'))
+// const clearbuzz = new Clearbuzz(socket, document.querySelector('#buzz_button'));
 const loginSection = document.querySelector('#login');
 const loginForm = loginSection.querySelector('#login_form');
 const playSection = document.querySelector('#buzz_interface');
@@ -119,4 +119,4 @@ buzzButton.addEventListener('click', onBuzz);
 document.addEventListener('DOMContentLoaded', onStartPage);
 score.init();
 buzz.init();
-clearbuzz.init();
+// clearbuzz.init();
