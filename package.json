@@ -1,7 +1,7 @@
 {
-  "name": "hit-the-buzz-jack",
+  "name": "lets-buzzit",
   "version": "1.0.0",
-  "description": "A websocket buzzer app for running your own quizzes or other games",
+  "description": "buzzer app using websocket ",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
