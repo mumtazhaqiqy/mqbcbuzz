@@ -2,6 +2,9 @@ const IoEvent = {
   BUZZ: {
     NEW: 'buzz:new',
     CLEAR: 'buzz:clear',
+    CLEARED: 'buzz:cleared',
+    RESET: 'buzz:reset',
+    RESETED: 'buzz:reseted'
   },
   SCORE: {
     INC: 'score:inc',
