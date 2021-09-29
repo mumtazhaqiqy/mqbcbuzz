@@ -105,6 +105,13 @@ function hideBuzz() {
   lockedBuzzDOM.classList.remove('uk-hidden');
 }
 
+function unhideBuzz() {
+  const buzzDOM = document.getElementById('buzz_button');
+  const lockedBuzzDOM = document.getElementById('buzz_locked');
+  buzzDOM.classList.remove('uk-hidden');
+  lockedBuzzDOM.classList.add('uk-hidden');
+}
+
 function onPlayerChange(teams) {
   const options = forgeOptions(teams);
   const selectBox = loginForm.querySelector('[name=team]');
@@ -112,6 +119,7 @@ function onPlayerChange(teams) {
   selectBox.insertAdjacentHTML("beforeend", options);
 }
 
+socket.on(IoEvent.BUZZ.CLEARED, unhideBuzz)
 socket.on(IoEvent.PLAYER.CHANGE, onPlayerChange)
 loginForm.addEventListener('submit', onLoginSubmit);
 // changeTeamButton.addEventListener('click', onChangeTeam);

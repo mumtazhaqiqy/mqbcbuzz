@@ -15,7 +15,7 @@ class Buzz {
     }
 
     render(buzzes) {
-      const toRender = buzzes.map(cur_buzz => `<li>[${cur_buzz.team}] ${cur_buzz.name}}</li>`).join('');
+      const toRender = buzzes.map(cur_buzz => `<li>[${cur_buzz.team}] ${cur_buzz.name}</li>`).join('');
       this.clearBuzzListDom();
       return this.buzzList.insertAdjacentHTML('beforeend', toRender)
     }
