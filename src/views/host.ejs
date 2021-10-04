@@ -26,7 +26,12 @@
                 <h2 class="uk-article-title uk-text-center">List Buzz</h2>
                 <hr class="uk-text-center uk-divider-small">
                 <button id="clear_buzz" class="uk-width-1-1 uk-button uk-button-danger">Clear Buzzes</button>
-                <button id="reset_all" class="uk-width-1-1 uk-button uk-button-danger">Reset All</button>
+                <button id="reset_buzz" class="uk-width-1-1 uk-button uk-button-danger">Reset All</button>
+                <br/>
+                <form id="new_team_form">
+                    <input name="team_name" class="uk-input uk-form-large" placeholder="add team name" type="text">
+                    <button id="add_new_team" class="uk-width-1-1 uk-button uk-button-danger">Add New Team</button>
+                </form>
                 <ul id="buzz_list" class="uk-list uk-list-striped">
                     <% data.buzzes.forEach(function(user){ %>
                     <li>[<%= user.team %>] <%= user.name %></li>

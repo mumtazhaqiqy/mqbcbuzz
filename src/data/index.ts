@@ -21,6 +21,14 @@
       this.teams = [...this.teams, team];
     }
 
+    addTeam(team_name:string) {
+      const teams = this.teams.filter(team => team.name === team_name);
+      // add new team
+      const team = new Team(team_name);
+      // add team in teams
+      this.teams = [...this.teams, team];
+    }
+
     removeUser(user_id: string, team_name: string) {
       const user_team = this.teams.find(team => team.name === team_name)
       if (user_team) {

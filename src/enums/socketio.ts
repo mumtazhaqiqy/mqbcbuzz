@@ -3,7 +3,8 @@ export const IoEvent = {
   BUZZ: {
     NEW: 'buzz:new',
     CLEAR: 'buzz:clear',
-    CLEARED: 'buzz:cleared'
+    CLEARED: 'buzz:cleared',
+    RESET: 'buzz:reset',
   },
   SCORE: {
     INC: 'score:inc',
@@ -12,6 +13,7 @@ export const IoEvent = {
   },
   PLAYER: {
     NEW: 'player:new',
+    NEWTEAM: 'player:newteam',
     EXIT: 'player:exit',
     CHANGE: 'player:change',
     BUZZED: 'player:buzzed',

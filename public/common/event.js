@@ -13,6 +13,7 @@ const IoEvent = {
   },
   PLAYER: {
     NEW: 'player:new',
+    NEWTEAM: 'player:newteam',
     EXIT: 'player:exit',
     CHANGE: 'player:change',
     BUZZED: 'player:buzzed'

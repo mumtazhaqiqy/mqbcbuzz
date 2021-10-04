@@ -39,6 +39,13 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
     console.log(data);
   });
 
+  // On Host add new team
+  socket.on(IoEvent.PLAYER.NEWTEAM, (team: {teamName:string}) => {
+    data.addTeam(team.teamName);
+    logger.info(`add new team ${team.teamName}`);
+    console.log(data.getTeams());
+  });
+
   // On player quit the game
   socket.on(IoEvent.PLAYER.EXIT, (user: { id: string; name: string; team: string; }) => {
     data.removeUser(user.id, user.team);
@@ -62,6 +69,11 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
     io.emit(IoEvent.BUZZ.CLEARED, data.getBuzzes());
     io.emit(IoEvent.PLAYER.BUZZED, data.getBuzzes());
     logger.info('Clear buzzes');
+  });
+
+  // when host reset the game
+  socket.on(IoEvent.BUZZ.RESET,() => {
+    logger.info('Reset buzzes');
   });
 
   socket.on(IoEvent.SCORE.INC, (team_name: string) => {
