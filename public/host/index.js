@@ -18,7 +18,6 @@ function onAddTeamSubmit(e) {
   socket.emit(IoEvent.PLAYER.NEWTEAM, newTeam.toObject());
   //clear input value
   teamNameNode.value = '';
-
 }
 
 class Team {
@@ -29,6 +28,8 @@ class Team {
     return {teamName: this.teamName}
   }
 }
+
+
 
 addTeamForm.addEventListener('submit', onAddTeamSubmit);
 

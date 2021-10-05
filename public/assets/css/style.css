@@ -34,7 +34,7 @@ body {
 
 h1 {
     font-size: 45px;
-    color: #fff;
+    color: rgb(34, 34, 34);
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -43,7 +43,7 @@ h1 {
 }
 /*-- slide --*/
 
-@keyframes slideleft {
+@keyframes slideleft { 
     from {
         background-position: 0%;
     }
@@ -76,7 +76,7 @@ h1 {
 }
 
 .bg-layer {
-    background: rgb(6 12 54 / 65%);
+    /* background: rgb(6 12 54 / 65%); */
     min-height: 100vh;
     text-align: center;
 }
@@ -91,6 +91,7 @@ h1 {
     padding: .8em 1em;
     background: rgba(255, 255, 255, 0.94);
     border-radius: 15px 5px;
+    color: rgb(34, 34, 34);
 }
 .icon1 span.fa {
     color: #222;
@@ -111,7 +112,7 @@ h1 {
 }
 .main-icon span.fa{
     font-size: 50px;
-    color: #fff;
+    color: rgb(34, 34, 34);
     margin-bottom: 1em;
 }
 .wthree li {
@@ -119,7 +120,7 @@ h1 {
 }
 a {
     font-weight: bold;
-    color: white;
+    color: rgb(34, 34, 34);
     margin: 0em;
 }
 .bottom {
@@ -133,10 +134,11 @@ a {
     position: relative;
     z-index: 999;
     padding: 1em 2em;
-    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
     -webkit-box-shadow: -1px 4px 28px 0px rgb(0 0 0 / 75%);
     -moz-box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
-    box-shadow: -1px 4px 28px 0px rgb(0 0 0 / 75%);
+    box-shadow: 0px 0px 13px -5px rgb(0 0 0 / 75%);
 }
 
 .sign-up {
@@ -148,7 +150,7 @@ a {
 }
 .sign-up h2 {
     font-size: 22px;
-    color: #fff;
+    color: rgb(34, 34, 34);
     text-align: center;
     background: #fbbc05;
     width: 40px;
@@ -201,7 +203,7 @@ a {
 /*-- agileits --*/
 .header-left-bottom p {
     font-size: 17px;
-    color: #fff;
+    color: rgb(34, 34, 34);
     font-weight: 500;
     float: left;
 }
@@ -225,7 +227,7 @@ a {
 }
 .header-left-bottom p a {
 	font-size: 11px;
-	color: #e2e2e2;
+	color: rgb(34, 34, 34);
 	text-transform: uppercase;
 }
 .social {
@@ -238,7 +240,7 @@ a {
     font-size: 20px;
 }
 .social span.fa {
-	color: #fff;
+	color: rgb(34, 34, 34);
 	font-size: 12px;
 	line-height: 35px;
 	margin: 0 5px;
@@ -332,9 +334,11 @@ input[type="checkbox" i] {
 /*-- header end here --*/
 h2 {
     font-size: 1.2em;
-    color: #fff;
+    color: #005faf;
+    font-weight: 800;
     line-height: 1.3em;
-    letter-spacing: 10px;
+    letter-spacing: 6px;
+    margin-top: 10px;
     margin-bottom: 12px;
 }
 h3 {
@@ -485,9 +489,10 @@ h3 a {
     height: 235px;
     width: 235px;
     max-height: 310px;
-    margin: 0px auto -7px auto;
+    margin: 8px 30px -7px 30px;
     position: relative;
     z-index: 1010;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 
@@ -642,13 +647,48 @@ h3 a {
     margin-bottom: 5px;
 }
 .title-name{
-    font-size: 30px;
-    font-weight: 500;
-    color: white;
+    font-size: 35px;
+    font-weight: 800;
+    color: #005faf;
 }
 .title-city{
-    /* font-size: 18px; */
-    font-weight: 400;
-    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    color: #005faf;
     margin-top: -15px;
+}
+
+.header-login-title{
+    color: #005faf;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.login-select-team-box{
+    border-radius: 15px 5px;
+}
+.scoreboard-title{
+    margin-bottom: 15px;
+}
+.list-score{
+    color: rgb(34, 34, 34); width:100%;text-align: left; font-weight: 500; font-size: 17px;
+}
+.list-score-name{
+    width: 80%;
+}
+.list-score-poin{
+    width: 20%;
+}
+.buzz-lists{
+    text-align: left; font-size:17px;color: rgb(34, 34, 34);
+}
+
+.login-button{
+    color: white;
+    font-weight: 500;
+}
+
+.logo{
+    width: 150px;
+    height: 70px;
+    margin: 5px auto 15px auto;
 }

@@ -39,10 +39,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- main -->
 <div class="w3layouts-main"> 
 	<div id="login" class="bg-layer">
-		<h1 style="margin-bottom: 30px;">Buzz it</h1>
+		<h1 class="header-login-title">MQBC Buzz it</h1>
 		<div class="header-main">
+			<!-- plan diganti ke logo bca -->
 			<div class="main-icon">
-				<span style="padding-top: 25px;" class="fa fa-eercast"></span>
+				<img src="/assets/images/bcalogo.svg" class="logo">
+				<!-- <span style="padding-top: 25px;" class="fa fa-eercast"></span> -->
 			</div>
 			<div class="header-left-bottom">
 				<form id="login_form" method="post">
@@ -53,7 +55,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 					<div class="icon2">
 						<label class="select" for="slct">
-							<select style="border-radius: 15px 5px;" name="team" required="required">
+							<select class="login-select-team-box" name="team" required="required">
                                 <option selected></option>
                                 <% data.teams.forEach(function(team){ %>
                                 <option value="<%= team.name %>"><%= team.name %></option>
@@ -66,7 +68,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 
 					<div class="bottom">
-						<button class="btn">Log In</button>
+						<button class="btn login-button">Log In</button>
 					</div>
 
 				</form>	
@@ -85,13 +87,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="header-main" id="score">
 
 			<div class="header-left-bottom">
-				<h2 style="margin-bottom: 15px;">Scoreboard</h2>
-                <table style="color:white; width:100%;text-align: left; font-weight: 500; font-size: 17px;" id="score_list" class="">
+				<h2 class="scoreboard-title">Scoreboard</h2>
+                <table id="score_list" class="list-score">
                     <tbody>
                     <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
                     <tr>
-                        <td style="width: 80%;"><%= team.name %></td>
-                        <td style="width: 20%"><%= team.point %></td>
+                        <td class="list-score-name"><%= team.name %></td>
+                        <td class="list-score-poin"><%= team.point %></td>
                     </tr>
                     <% }); %>
                     </tbody>
@@ -103,7 +105,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div id="buzz_interface" class="buzzArea">
 			<button id="buzz_button"  class="bubbly-button">BUZZ it</button>
 			<script>
-				var animateButton = function (e) {
+				const animateButton = function (e) {
 					e.preventDefault;
 					//reset animation
 					e.target.classList.remove("animate");
@@ -114,7 +116,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					}, 700);
 				};
 
-				var bubblyButtons = document.getElementsByClassName("bubbly-button");
+				const bubblyButtons = document.getElementsByClassName("bubbly-button");
 
 				for (var i = 0; i < bubblyButtons.length; i++) {
 					bubblyButtons[i].addEventListener("click", animateButton, false);
@@ -124,8 +126,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!--    BuzzRank     -->
 		<di id="buzz" class="header-main">
 			<div class="header-left-bottom">
-				<h2 style="margin-bottom: 15px;">Buzz Rank</h2>
-                <ul style="text-align: left; font-size:17px;color:white;" id="buzz_list" class="uk-list uk-list-striped">
+				<h2 class="scoreboard-title">Buzz Rank</h2>
+                <ul id="buzz_list" class="uk-list uk-list-striped buzz-lists">
                     <% data.buzzes.forEach(function(user){ %>
                     <li>[<%= user.team %>] <%= user.name %></li>
                     <% }); %>
