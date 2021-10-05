@@ -8,7 +8,9 @@ const loginForm = loginSection.querySelector('#login_form');
 const playSection = document.querySelector('#buzz_interface');
 const changeTeamButton = document.querySelector('#change_team');
 const buzzButton = document.querySelector('#buzz_button');
-const personalInfo = document.querySelector('#info_me');
+// const personalInfo = document.querySelector('#info_me');
+const nameInfo = document.querySelector('#info_name');
+const teamInfo = document.querySelector('#info_team');
 const USER_KEY = 'USER';
 
 function forgeOptions(teams) {
@@ -28,7 +30,9 @@ function fetchUser() {
 }
 
 function changePersonalInformation(user) {
-  personalInfo.textContent = `${user.name} from "${user.team}"`;
+  // personalInfo.textContent = `${user.name} from "${user.team}"`;
+  nameInfo.textContent = `${user.name}`;
+  teamInfo.textContent = `${user.team}`;
 }
 
 function toggleLoginView() {
@@ -100,16 +104,13 @@ function onBuzz() {
 
 function hideBuzz() {
   const buzzDOM = document.getElementById('buzz_button');
-  const lockedBuzzDOM = document.getElementById('buzz_locked');
-  buzzDOM.classList.add('uk-hidden');
-  lockedBuzzDOM.classList.remove('uk-hidden');
+  buzzDOM.innerText = 'Buzzed';
 }
 
 function unhideBuzz() {
   const buzzDOM = document.getElementById('buzz_button');
-  const lockedBuzzDOM = document.getElementById('buzz_locked');
-  buzzDOM.classList.remove('uk-hidden');
-  lockedBuzzDOM.classList.add('uk-hidden');
+  buzzDOM.innerText = 'BUZZ it';
+  
 }
 
 function onPlayerChange(teams) {

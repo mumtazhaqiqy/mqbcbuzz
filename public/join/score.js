@@ -23,8 +23,8 @@ class Score {
   createNode(team) {
     return `
        <tr id="${team.name}">
-        <td>${team.name}</td>
-        <td>${team.point}</td>
+        <td style="width: 80%;" >${team.name}</td>
+        <td style="width: 20%;" >${team.point}</td>
       </tr>
     `
   }
