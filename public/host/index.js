@@ -16,6 +16,9 @@ function onAddTeamSubmit(e) {
    //store team 
   const newTeam = new Team(teamName);
   socket.emit(IoEvent.PLAYER.NEWTEAM, newTeam.toObject());
+  //clear input value
+  teamNameNode.value = '';
+
 }
 
 class Team {
