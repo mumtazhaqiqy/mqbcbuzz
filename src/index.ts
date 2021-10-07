@@ -63,8 +63,12 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
   // On player buzz
   socket.on(IoEvent.BUZZ.NEW, (user: { id: string; name: string; team: string; }) => {
     data.buzzes.add(user.id);
+    const date = new Date().getTime();
+    const now = date;
+    data.milis.add(now);
     io.emit(IoEvent.PLAYER.BUZZED, data.getBuzzes());
-    logger.info(`${user.name} buzzed in!}`);
+    // logger.info(`${user.name} buzzed in! at  ${now}` );
+    console.log(data.getBuzzes());
   });
 
   // When host clear all buzzes

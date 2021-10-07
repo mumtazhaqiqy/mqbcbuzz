@@ -11,7 +11,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <title><%= config.title %></title>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">  -->
 <meta name="keywords" content="" />
 
 	 <script>
@@ -104,6 +106,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<!--    BuzzButton     -->
 		<div id="buzz_interface" class="buzzArea">
 			<button id="buzz_button"  class="bubbly-button">BUZZ it</button>
+			<button id="buzz_locked"  class="bubbly-button hidden" >Buzzed</button>
 			<script>
 				const animateButton = function (e) {
 					e.preventDefault;
@@ -129,7 +132,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<h2 class="scoreboard-title">Buzz Rank</h2>
                 <ul id="buzz_list" class="uk-list uk-list-striped buzz-lists">
                     <% data.buzzes.forEach(function(user){ %>
-                    <li>[<%= user.team %>] <%= user.name %></li>
+                    <li>[<%= user.team %>] <%= user.name %> <span class="float-rt"><%= user.now %> ms</span></li>
                     <% }); %>
                 </ul>
 			</div>

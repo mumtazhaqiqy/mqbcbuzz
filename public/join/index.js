@@ -104,12 +104,18 @@ function onBuzz() {
 
 function hideBuzz() {
   const buzzDOM = document.getElementById('buzz_button');
-  buzzDOM.innerText = 'Buzzed';
+  const buzzedDOM = document.getElementById('buzz_locked');
+
+  buzzDOM.classList.add('hidden');
+  buzzedDOM.classList.remove('hidden');
 }
 
 function unhideBuzz() {
   const buzzDOM = document.getElementById('buzz_button');
-  buzzDOM.innerText = 'BUZZ it';
+  const buzzedDOM = document.getElementById('buzz_locked');
+  
+  buzzDOM.classList.remove('hidden');
+  buzzedDOM.classList.add('hidden');
   
 }
 

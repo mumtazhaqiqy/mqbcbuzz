@@ -1,5 +1,10 @@
 {
+  "events": {
+    "restart": "kill-port 3000",
+    "crash": "kill-port 3000"
+  },
   "watch": ["src"],
   "ext": "ts",
-  "exec": "node --inspect -r ts-node/register ./src/index.ts"
+  "exec": "node --inspect -r ts-node/register ./src/index.ts",
+  "delay": "2000"
 }

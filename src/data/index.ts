@@ -1,13 +1,16 @@
-  import {Team} from "./team";
+  import { timeStamp } from "console";
+import {Team} from "./team";
   import {User} from "./user";
 
   export class Data {
     public buzzes: Set<string>;
     public teams: Team[];
+    public milis: Set<number>;
 
     constructor() {
       this.buzzes = new Set();
       this.teams = [];
+      this.milis = new Set();
     }
 
     addUser(user: User, team_name: string) {
@@ -46,14 +49,14 @@
     incrementPoint(team_name: string) {
       const team = this.teams.find(team => team.name === team_name)
       if (team) {
-        team.point += 1;
+        team.point += 10;
       }
     }
 
     decrementPoint(team_name: string) {
       const team = this.teams.find(team => team.name === team_name)
       if (team) {
-        team.point -= 1;
+        team.point -= 10;
       }
     }
 
@@ -63,9 +66,18 @@
     }
 
     getBuzzes() {
-      return [...this.buzzes].map(user_id => {
+      return [...this.buzzes].map((user_id, index) => {
         const user = this.getUserById(user_id)
-        return user ? { id: user.id, name: user.name, team: user.team } : null;
+        if(index == 0){ 
+          var now = '00'
+        } else {
+          const lastTimeStamp = Array.from(this.milis)[index - 1]
+          const currTimeStamp = Array.from(this.milis)[index]
+          var between = Math.abs((currTimeStamp - lastTimeStamp) / 1);
+          var now = between.toString()
+        }
+        const timeStamp = Array.from(this.milis)[index];
+        return user ? { id: user.id, name: user.name, team: user.team, now:now, time:timeStamp} : null;
       }).filter(Boolean);
     }
 
@@ -83,6 +95,7 @@
 
     resetBuzzes() {
       this.buzzes = new Set();
+      this.milis = new Set();
     }
 
     resetTeams() {
