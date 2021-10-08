@@ -126,6 +126,12 @@ function onPlayerChange(teams) {
   selectBox.insertAdjacentHTML("beforeend", options);
 }
 
+socket.on(IoEvent.BUZZ.RESETED, function() {
+  console.log('BUZZ RESETED');
+  togglePlayView();
+  toggleLoginView();
+})
+
 socket.on(IoEvent.BUZZ.CLEARED, unhideBuzz)
 socket.on(IoEvent.PLAYER.CHANGE, onPlayerChange)
 loginForm.addEventListener('submit', onLoginSubmit);

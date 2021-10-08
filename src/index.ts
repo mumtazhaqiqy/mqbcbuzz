@@ -83,6 +83,8 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
   socket.on(IoEvent.BUZZ.RESET,() => {
     data.resetAll();
     io.emit(IoEvent.BUZZ.RESETED);
+    io.emit(IoEvent.BUZZ.CLEARED, data.getBuzzes());
+    io.emit(IoEvent.PLAYER.BUZZED, data.getBuzzes());
     logger.info('Reset buzzes');
   });
 
