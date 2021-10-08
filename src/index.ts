@@ -81,6 +81,8 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
 
   // when host reset the game
   socket.on(IoEvent.BUZZ.RESET,() => {
+    data.resetAll();
+    io.emit(IoEvent.BUZZ.RESETED);
     logger.info('Reset buzzes');
   });
 

@@ -5,6 +5,7 @@ export const IoEvent = {
     CLEAR: 'buzz:clear',
     CLEARED: 'buzz:cleared',
     RESET: 'buzz:reset',
+    RESETED: 'buzz:reseted'
   },
   SCORE: {
     INC: 'score:inc',

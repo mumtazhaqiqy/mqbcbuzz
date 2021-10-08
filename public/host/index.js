@@ -2,10 +2,12 @@ const socket = io();
 const buzz = new Buzz(socket, document.querySelector('#buzz'));
 const team = new Teams(socket, document.querySelector('#teams'));
 const score = new Score(socket, document.querySelector('#score'));
+const reset = new Reset(socket, document.querySelector('#reset_buzz'));
 
 // buzzdom
 const buzzDOM = document.querySelector('#buzz');
 const addTeamForm = buzzDOM.querySelector('#new_team_form');
+
 
 function onAddTeamSubmit(e) {
   e.preventDefault();
@@ -29,14 +31,13 @@ class Team {
   }
 }
 
-
-
 addTeamForm.addEventListener('submit', onAddTeamSubmit);
 
 document.addEventListener('DOMContentLoaded', () => {
   buzz.init();
   team.init();
   score.init();
+  reset.init();
 });
 
 

@@ -66,7 +66,7 @@
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="score_list_tbody">
                         <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
                         <tr id="<%= team.name %>">
                             <td><%= team.name %></td>
@@ -87,6 +87,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/common/event.js"></script>
     <script src="/host/buzz.js"></script>
+    <script src="/host/reset.js"></script>
     <script src="/host/team.js"></script>
     <script src="/host/score.js"></script>
     <script src="/host/index.js"></script>
