@@ -683,7 +683,7 @@ h3 a {
 }
 .buzz-lists{
     text-align: left; font-size:17px;color: rgb(34, 34, 34);
-}
+}   
 
 .login-button{
     color: white;
@@ -694,6 +694,12 @@ h3 a {
     width: 150px;
     height: 70px;
     margin: 5px auto 15px auto;
+}
+
+.logostackup {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 160px;
 }
 
 .hidden {

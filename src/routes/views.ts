@@ -17,5 +17,8 @@ export const registerRoutes = (server: fastify.FastifyInstance, opts: IOpts, don
   server.get('/scoreboard', (request, reply) => {
     reply.view('/src/views/scoreboard.ejs', { config: opts.config, data: opts.data.getData() });
   });
+  server.get('/admin', (request, reply) => {
+    reply.view('/src/views/admin.ejs', { config: opts.config, data: opts.data.getData() });
+  });
   done();
 };

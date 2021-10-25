@@ -128,8 +128,9 @@ function onPlayerChange(teams) {
 
 socket.on(IoEvent.BUZZ.RESETED, function() {
   console.log('BUZZ RESETED');
-  togglePlayView();
-  toggleLoginView();
+  // togglePlayView();
+  // toggleLoginView();
+  location.reload();
 })
 
 socket.on(IoEvent.BUZZ.CLEARED, unhideBuzz)

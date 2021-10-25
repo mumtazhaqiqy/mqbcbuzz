@@ -10,6 +10,8 @@ export const IoEvent = {
   SCORE: {
     INC: 'score:inc',
     DEC: 'score:dec',
+    INC50: 'score:inc50',
+    DEC50: 'score:dec50',
     CHANGE: 'score:change'
   },
   PLAYER: {

@@ -16,7 +16,7 @@ const config = {
     env: env('NODE_ENV', ENVIRONMENT.DEV),
   },
   application: {
-    title: env('APPLICATION_TITLE', 'Buzz Buzz'),
+    title: env('APPLICATION_TITLE', 'MQBC BCA'),
   },
 };
 

@@ -21,9 +21,38 @@ class Score {
     this.io.emit(IoEvent.SCORE.INC, team_name);
   }
 
+  decrement50Point(team_name) {
+    // console.log(team_name);
+    this.io.emit(IoEvent.SCORE.DEC50, team_name);
+  }
+
+  increment50Point(team_name) {
+    // console.log(team_name);
+    this.io.emit(IoEvent.SCORE.INC50, team_name);
+  }
+
+
   addEvent() {
+    const allDec50Action = Array.from(this.scoreBody.querySelectorAll('.dec_50point'));
+    const allInc50Action = Array.from(this.scoreBody.querySelectorAll('.inc_50point'))
+
     const allDecAction = Array.from(this.scoreBody.querySelectorAll('.dec_point'));
     const allIncAction = Array.from(this.scoreBody.querySelectorAll('.inc_point'));
+
+    allDec50Action.map(minus => {
+      const tr = minus.closest('tr');
+      const id = tr.id;
+      // console.log({ id });
+      minus.addEventListener('click', () => this.decrement50Point(id));
+    });
+    allInc50Action.map(plus => {
+      const tr = plus.closest('tr');
+      const id = tr.id;
+      // console.log({ id });
+      plus.addEventListener('click', () => this.increment50Point(id));
+    });
+
+
     allDecAction.map(minus => {
       const tr = minus.closest('tr');
       const id = tr.id;
@@ -55,9 +84,14 @@ class Score {
         <td>${team.name}</td>
         <td>${team.point}</td>
         <td>
-          <span class="pointer dec_point" uk-icon="minus"></span>
+          <span class="pointer dec_point" >- 100</span>
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="pointer inc_point" uk-icon="plus"></span>
+          <span class="pointer inc_point" >+ 100</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="pointer dec_50point">- 50</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="pointer inc_50point">+ 50</span>
+          &nbsp;&nbsp;&nbsp;&nbsp;
         </td>
       </tr>
     `

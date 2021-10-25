@@ -100,6 +100,18 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
     io.emit(IoEvent.SCORE.CHANGE, data.getData().teams);
   });
 
+  socket.on(IoEvent.SCORE.INC50, (team_name: string) => {
+    logger.info(`Team ${team_name} gain half point`)
+    data.increment50Point(team_name);
+    io.emit(IoEvent.SCORE.CHANGE, data.getData().teams);
+  });
+
+  socket.on(IoEvent.SCORE.DEC50, (team_name: string) => {
+    logger.info(`Team ${team_name} lose half point`)
+    data.decrement50Point(team_name);
+    io.emit(IoEvent.SCORE.CHANGE, data.getData().teams);
+  });
+
   socket.on('disconnect', (reason) => {
     console.log(reason);
   });
