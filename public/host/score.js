@@ -83,10 +83,10 @@ class Score {
        <tr id="${team.name}">
         <td>${team.name}</td>
         <td style="text-align: right;cursor: pointer;">
-          <span class="uk-badge dec_point" >-100</span>
-          <span class="uk-badge inc_point" >+100</span>
-          <span class="uk-badge dec_50point">- 50</span>
-          <span class="uk-badge inc_50point">+ 50</span>
+          <span style="background: #ea4141;" class="uk-badge dec_50point">- 50</span>
+          <span style="background: #ea4141;" class="uk-badge dec_point" >-100</span>
+          <span style="background: #35bf4c;" class="uk-badge inc_50point">+ 50</span>
+          <span style="background: #35bf4c;" class="uk-badge inc_point" >+100</span>
         </td>
       </tr>
     `

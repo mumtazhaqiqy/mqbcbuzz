@@ -7,6 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/css/uikit.min.css" />
+    <style>
+        .uk-background-muted {
+            background-image: url('assets/images/bg.jpg');
+            background-size: cover;
+            
+        }
+        .uk-badge-danger {
+            background:red;
+        }
+    </style>
 
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/js/uikit.min.js"></script>
@@ -35,10 +45,10 @@
                         <tr id="<%= team.name %>">
                             <td><%= team.name %></td>
                             <td style="text-align: right;cursor: pointer;">
-                                <span class="uk-badge dec_point" >-100</span>
-                                <span class="uk-badge inc_point" >+100</span>
-                                <span class="uk-badge dec_50point">- 50</span>
-                                <span class="uk-badge inc_50point">+ 50</span>
+                                <span style="background: #ea4141;" class="uk-badge dec_50point">- 50</span>
+                                <span style="background: #ea4141;" class="uk-badge dec_point" >-100</span>
+                                <span style="background: #35bf4c;" class="uk-badge inc_50point">+ 50</span>
+                                <span style="background: #35bf4c;" class="uk-badge inc_point" >+100</span>
                             </td>
                         </tr>
                         <% }); %>
