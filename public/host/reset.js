@@ -6,7 +6,6 @@ class Reset {
     this.scoreListDOM = document.querySelector('#score_list');
     this.scoreonlyListDOM = document.querySelector('#scoreonly_list');
     this.buzzListDOM = document.querySelector('#buzz_list');
-
   }
 
   init() {
@@ -15,7 +14,9 @@ class Reset {
   }
 
   click(e) {
-    this.io.emit(IoEvent.BUZZ.RESET);
+    if(confirm('Apakah anda yakin akan mereset game, dengan klik "ok" semua data akan hilang')){
+      this.io.emit(IoEvent.BUZZ.RESET);
+    }
   }
 
   clearListDOM() {
