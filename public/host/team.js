@@ -23,11 +23,9 @@ class Teams {
 
   createNode(team) {
     return `
-      <div class="uk-card uk-card-small uk-card-default uk-box-shadow-large">
-        <h3 class="uk-card-title uk-text-center@s">${team.name}</h3>
-        <ul class="uk-list uk-list-striped">
-          ${team.members.map(member => `<li>${member.name}</li>`).join('')}
-        </ul>
+      <div class="uk-heading-bullet uk-text-bold">${team.name}</div>
+      <div class="uk-text-small uk-margin-left">
+        ${team.members.map(member => `[${member.name}]`).join('')}
       </div>
     `
   }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" >
+<html lang="en" class="uk-background-muted">
 <head>
     <meta charset="utf-8">
     <title><%= config.title %></title>
@@ -11,77 +11,73 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.1/dist/js/uikit-icons.min.js"></script>
-    <style>
-        h1 { color: #d54d7b; font-size: 165px; line-height: 160px; font-weight: normal; margin-bottom: 0px; margin-top: 40px; text-align: center; text-shadow: 0 1px 1px #fff; }
-        .pointer { cursor: pointer }
-    </style>
 </head>
 
 <body>
-    <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
-        <h1 class="uk-article-title uk-text-center">BUZZ it HOST</h1>
-        <hr/>
-        <div class="uk-flex" data-uk-grid-margin="">
-            <div id="buzz" class="uk-margin-medium-right uk-width-medium-1-4 uk-row-first uk-box-shadow-medium">
-                <h2 class="uk-article-title uk-text-center">List Buzz</h2>
-                <hr class="uk-text-center uk-divider-small">
-                <button id="clear_buzz" class="uk-width-1-1 uk-button uk-button-danger">Clear Buzzes</button>
-                <button id="reset_buzz" class="uk-width-1-1 uk-button uk-button-danger">Reset All</button>
-                <br/>
+    <div id='buzz' class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+        <h1 class="uk-heading-divider">MQBC BUZZ Admin</h1>
+        <div>
+            <button id="clear_buzz" class="uk-button uk-button-primary">Clear Buzzes</button>
+            <button class="uk-button bg-yellow">Lock Buzz</button>
+            <button id="reset_buzz" class="uk-button uk-button-danger">Reset All</button>
+        </div>
+
+        <div class="uk-flex uk-margin-top">
+            <div id ="teams" class="uk-card uk-card-default uk-card-body">
                 <form id="new_team_form">
-                    <input name="team_name" class="uk-input uk-form-large" placeholder="add team name" type="text">
-                    <button id="add_new_team" class="uk-width-1-1 uk-button uk-button-danger">Add New Team</button>
+                    <input name="team_name" class="uk-input uk-margin-bottom" placeholder="add new team name" type="text" required>
+                    <button class="uk-button uk-button-primary uk-margin-bottom">Submit</button>
                 </form>
-                <ul id="buzz_list" class="uk-list uk-list-striped">
-                    <% data.buzzes.forEach(function(user){ %>
-                    <li>[<%= user.team %>] <%= user.name %></li>
-                    <% }); %>
-                </ul>
-            </div>
-            <div id="teams" class="uk-width-medium-2-4 uk-row-first uk-box-shadow-medium">
-                <h2 class="uk-article-title uk-text-center">List</h2>
-                <hr class="uk-text-center uk-divider-small">
-                <div id="team_list">
-                    <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
-                    <div class="uk-card uk-card-small uk-card-default uk-box-shadow-large">
-                        <h3 class="uk-card-title uk-text-center@s"><%= team.name %></h3>
-                        <ul class="uk-list uk-list-striped">
-                            <% team.members.forEach(function(user){ %>
-                            <li><%= user.name %></li>
-                            <% }) %>
-                        </ul>
-                    </div>
-                    <% })%>
-                </div>
-            </div>
-            <div id="score" class="uk-margin-medium-left uk-width-medium-1-4 uk-box-shadow-medium">
-                <h2 class="uk-article-title uk-text-center">Scores</h2>
-                <hr class="uk-text-center uk-divider-small">
-                <div class="uk-panel uk-panel-box uk-box-shadow-medium">
-                    <table id="score_list" class="uk-table uk-table-divider">
-                        <thead>
-                        <tr>
-                            <th>Team</th>
-                            <th>Score</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
+                <div id="score">
+                    <table id="score_list" class="uk-table">
                         <tbody id="score_list_tbody">
-                        <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
+                        <% data.teams.forEach(function(team){ %>
                         <tr id="<%= team.name %>">
                             <td><%= team.name %></td>
-                            <td><%= team.point %></td>
-                            <td>
-                                <span class="pointer dec_point" uk-icon="minus"></span>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <span class="pointer inc_point" uk-icon="plus"></span>
+                            <td style="text-align: right;cursor: pointer;">
+                                <span class="uk-badge dec_point" >-100</span>
+                                <span class="uk-badge inc_point" >+100</span>
+                                <span class="uk-badge dec_50point">- 50</span>
+                                <span class="uk-badge inc_50point">+ 50</span>
                             </td>
                         </tr>
                         <% }); %>
                         </tbody>
                     </table>
                 </div>
-            </div>
+                <hr>
+                <div id='team_list'>
+                    <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
+                    <div class="uk-heading-bullet uk-text-bold"><%= team.name %></div>
+                    <div class="uk-text-small uk-margin-left">
+                        <% team.members.forEach(function(user){ %>
+                        [<%= user.name %>]
+                        <% }) %>
+                    </div>
+                    <% })%>
+                </div>
+            </div> 
+            <div id="scoreonly" class="uk-card uk-card-default uk-card-body uk-width-1-3 uk-margin-left">
+                <h3 class="uk-heading-bullet">Team Rank & Score</h3>
+                <table id="scoreonly_list" class="uk-table uk-table-striped uk-table-small">
+                    <tbody id="scoreonly_list_tbody">
+                    <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
+                    <tr id="<%= team.name %>">
+                        <td style="width: 80%;"><%= team.name %></td>
+                        <td style="width: 20%;" ><%= team.point %></td>
+                    </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </div> 
+            <div class="uk-card uk-card-default uk-card-body uk-width-1-3  uk-margin-left">
+                <h3 class="uk-heading-bullet">Buzz Rank</h3>
+                <ul id="buzz_list" class="uk-list uk-list-striped">
+                    <% data.buzzes.forEach(function(user){ %>
+                    <li>[<%= user.team %>] <%= user.name %></li>
+                    <% }); %>
+                </ul>
+            </div> 
         </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
@@ -90,6 +86,7 @@
     <script src="/host/reset.js"></script>
     <script src="/host/team.js"></script>
     <script src="/host/score.js"></script>
+    <script src="/host/scoreonly.js"></script>
     <script src="/host/index.js"></script>
 </body>
 

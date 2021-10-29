@@ -2,6 +2,7 @@ const socket = io();
 const buzz = new Buzz(socket, document.querySelector('#buzz'));
 const team = new Teams(socket, document.querySelector('#teams'));
 const score = new Score(socket, document.querySelector('#score'));
+const scoreonly = new Scoreonly(socket, document.querySelector('#scoreonly'));
 const reset = new Reset(socket, document.querySelector('#reset_buzz'));
 
 // buzzdom
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buzz.init();
   team.init();
   score.init();
+  scoreonly.init();
   reset.init();
 });
 

@@ -4,6 +4,7 @@ class Reset {
     this.resetDOM = resetDOM;
     this.teamListDOM = document.querySelector('#team_list');
     this.scoreListDOM = document.querySelector('#score_list');
+    this.scoreonlyListDOM = document.querySelector('#scoreonly_list');
     this.buzzListDOM = document.querySelector('#buzz_list');
 
   }
@@ -20,6 +21,7 @@ class Reset {
   clearListDOM() {
     this.teamListDOM.innerHTML = '';
     this.scoreListDOM.querySelector('#score_list_tbody').innerHTML = '';
+    this.scoreonlyListDOM.querySelector('#scoreonly_list_tbody').innerHTML = '';
     this.buzzListDOM.innerHTML = '';
     console.log('data reseted');
   }

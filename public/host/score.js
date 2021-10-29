@@ -70,7 +70,7 @@ class Score {
   forgeList(teams) {
     // console.log(teams)
     return teams
-      .sort((prev, curr) => curr.point - prev.point)
+      // .sort((prev, curr) => curr.point - prev.point)
       .map(team => this.createNode(team)).join('');
   }
 
@@ -82,16 +82,11 @@ class Score {
     return `
        <tr id="${team.name}">
         <td>${team.name}</td>
-        <td>${team.point}</td>
-        <td>
-          <span class="pointer dec_point" >- 100</span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="pointer inc_point" >+ 100</span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="pointer dec_50point">- 50</span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="pointer inc_50point">+ 50</span>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <td style="text-align: right;cursor: pointer;">
+          <span class="uk-badge dec_point" >-100</span>
+          <span class="uk-badge inc_point" >+100</span>
+          <span class="uk-badge dec_50point">- 50</span>
+          <span class="uk-badge inc_50point">+ 50</span>
         </td>
       </tr>
     `
