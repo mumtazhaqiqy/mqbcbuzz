@@ -502,7 +502,7 @@ h3 a {
 
 
 
-.glow::before , .glow::after{
+.glow0::before , .glow0::after{
     content: '';
     position: absolute;
     left: -2px;
@@ -514,12 +514,27 @@ h3 a {
     z-index: -1;
     animation: animate 20s linear infinite;
 }
-.glow2::before , .glow2::after{
+.glow1::before , .glow1::after{
     content: '';
     position: absolute;
     left: -2px;
     top: -2px;
     background: linear-gradient(45deg , #ff882b, #ff6514, #8b4d15, rgba(113, 49, 6, 0.45));
+    background-size: 400%;
+    width: calc(100% + 5px);
+    height: calc(100% + 5px);
+    z-index: -1;
+    animation: animate 20s linear infinite;
+}
+.glow1::after{
+    filter: blur(40px);
+}
+.glow2::before , .glow2::after{
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    background: linear-gradient(45deg , #b200ff, #de1cff, #8b3e7a, rgba(100, 27, 113, 0.45));
     background-size: 400%;
     width: calc(100% + 5px);
     height: calc(100% + 5px);
@@ -534,7 +549,7 @@ h3 a {
     position: absolute;
     left: -2px;
     top: -2px;
-    background: linear-gradient(45deg , #b200ff, #de1cff, #8b3e7a, rgba(100, 27, 113, 0.45));
+    background: linear-gradient(45deg , #0b18ff, #1859ff, #1c638b, rgba(4, 24, 113, 0.45));
     background-size: 400%;
     width: calc(100% + 5px);
     height: calc(100% + 5px);
@@ -544,23 +559,8 @@ h3 a {
 .glow3::after{
     filter: blur(40px);
 }
-.glow4::before , .glow4::after{
-    content: '';
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    background: linear-gradient(45deg , #0b18ff, #1859ff, #1c638b, rgba(4, 24, 113, 0.45));
-    background-size: 400%;
-    width: calc(100% + 5px);
-    height: calc(100% + 5px);
-    z-index: -1;
-    animation: animate 20s linear infinite;
-}
-.glow4::after{
-    filter: blur(40px);
-}
 
-.glow5::before , .glow5::after{
+.glow4::before , .glow4::after{
     content: '';
     position: absolute;
     left: -2px;
@@ -572,10 +572,10 @@ h3 a {
     z-index: -1;
     animation: animate 20s linear infinite;
 }
-.glow5::after{
+.glow4::after{
     filter: blur(40px);
 }
-.glow6::before , .glow6::after{
+.glow5::before , .glow5::after{
     content: '';
     position: absolute;
     left: -2px;
@@ -587,7 +587,7 @@ h3 a {
     z-index: -1;
     animation: animate 20s linear infinite;
 }
-.glow6::after{
+.glow5::after{
     filter: blur(40px);
 }
 

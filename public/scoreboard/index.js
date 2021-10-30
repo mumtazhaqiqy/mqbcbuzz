@@ -1,7 +1,5 @@
 const socket = io();
-
 var toggleBuzz = true
-
 var allteams = []
 
 function doWhenScoreChange(teams) {
@@ -12,11 +10,24 @@ function doWhenScoreChange(teams) {
     });
 }
 
+function clearAllPodiumLight(teams) {
+    teams.forEach((element, index) => {
+        const podiumLightDOM = document.querySelector('#podium-'+index)
+        const podiumBorderDOM = document.querySelectorAll('.border'+index)
+        podiumLightDOM.classList.remove('active-podium')
+
+        podiumBorderDOM.forEach(el => {
+            el.classList.remove('glow'+index)
+        })
+
+    })
+}
+
 socket.on(IoEvent.SCORE.CHANGE, (teams) => doWhenScoreChange(teams))
 
 socket.on(IoEvent.BUZZ.CLEARED, (user) => {
     toggleBuzz = true;
-    // console.log(toggleBuzz);
+    clearAllPodiumLight(allteams)
 })
 
 socket.on(IoEvent.PLAYER.BUZZED, (user) => {
@@ -28,12 +39,20 @@ socket.on(IoEvent.PLAYER.BUZZED, (user) => {
             const teamIndex = allteams.map((el) => el.name).indexOf(buzzedTeam);
 
             console.log(teamIndex)
-            // turn on the light bulb
+            // clear all the podium light
+            clearAllPodiumLight(allteams)
 
-            // console.log(allteams); 
+            // turn on the light bulb and glow 
+            const podiumLightDOM = document.querySelector('#podium-'+teamIndex);
+            const podiumBorderDOM = document.querySelectorAll('.border'+teamIndex);
+            podiumLightDOM.classList.add('active-podium');
+
+            podiumBorderDOM.forEach(el => {
+                el.classList.add('glow'+teamIndex)
+            })
     
             toggleBuzz = false
-            // console.log(toggleBuzz)   
+
         } catch(err) {
             console.log('clear all buzzed')
         }
