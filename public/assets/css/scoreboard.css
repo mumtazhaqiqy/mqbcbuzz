@@ -514,6 +514,10 @@ h3 a {
     z-index: -1;
     animation: animate 20s linear infinite;
 }
+.glow0::after{
+    filter: blur(40px);
+}
+
 .glow1::before , .glow1::after{
     content: '';
     position: absolute;

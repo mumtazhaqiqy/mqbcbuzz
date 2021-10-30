@@ -1,4 +1,5 @@
 import * as fastify from 'fastify';
+import fastifyBasicAuth from 'fastify-basic-auth';
 import { Data } from '../data';
 import { IApplication } from '../config';
 

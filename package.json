@@ -34,6 +34,7 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.0.2",
     "fastify": "^2.13.1",
+    "fastify-basic-auth": "^2.1.0",
     "fastify-static": "^2.6.0",
     "node-uuid": "^1.4.8",
     "pino-prettifier": "^1.0.8",

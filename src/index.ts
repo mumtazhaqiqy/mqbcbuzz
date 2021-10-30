@@ -1,6 +1,7 @@
 import fastify from 'fastify';
 import pointOfView from 'point-of-view';
 import fastifyStatic from 'fastify-static';
+
 import socketIo, { Socket } from 'socket.io';
 import { logger } from './providers/logger';
 import { registerRoutes } from './routes/views';
