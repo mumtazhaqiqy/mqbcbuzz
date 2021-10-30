@@ -12,8 +12,9 @@ class Score {
   
     forgeList(teams) {
       return teams
-        .sort((prev, curr) => curr.point - prev.point)
-        .map(team => this.createNode(team)).join('');
+        // .sort((prev, curr) => curr.point - prev.point)
+        // .map(team => this.createNode(team)).join('');
+
     }
   
     emptyList() {

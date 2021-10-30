@@ -27,6 +27,7 @@ server.register(fastifyStatic, {
 });
 
 io.on(IoEvent.CONNECTION, (socket: Socket) => {
+  io.emit(IoEvent.SCORE.CHANGE, data.getData().teams);
   // On player join the game
   socket.on(IoEvent.PLAYER.NEW, (user: { id: string; name: string; team: string; }) => {
     const u = new User(user.id, user.name)

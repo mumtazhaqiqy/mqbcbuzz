@@ -1,18 +1,69 @@
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scoreboard</title>
+<title>BuzzIT</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
+
+	 <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+	<link href="/assets/css/scoreboard.css" rel="stylesheet" type="text/css" media="all" />
+
+
 </head>
 <body>
-<!-- script -->
-    
+<!-- main -->
+<div class="w3layouts-main">
+	<div class="bg-layer">
+		<% data.teams.forEach(function(team, index){ %>
+		<div class="header-main">
+
+			<div class="userFrame1 border<%= index %> ">
+				<div class="block"></div>
+			</div>
+			<div class="userFrame2 border<%= index %> ">
+				<div class="block"></div>
+			</div>
+			<div class="userFrame3 border<%= index %> ">
+				<div class="block"></div>
+			</div>
+
+			<div class="header-left-bottom">
+				<div id="<%= team.name %>" class="podium-area<%= index %>">
+					<div id="score-<%= index %>" class="score-podium"><%= team.point %></div>
+					<div class="podium-light"></div>
+				</div>
+			</div>
+
+		</div>
+		<% }); %>
+	</div>
+
+</div>
+
+<!-- //main -->
 <script src="/socket.io/socket.io.js"></script>
 <script src="/common/event.js"></script>
 <script src="/scoreboard/index.js"></script>
 
 </body>
-
 </html>
+
+    
