@@ -1,5 +1,5 @@
   import { timeStamp } from "console";
-import {Team} from "./team";
+  import {Team} from "./team";
   import {User} from "./user";
 
   export class Data {
