@@ -4,7 +4,11 @@ const IoEvent = {
     CLEAR: 'buzz:clear',
     CLEARED: 'buzz:cleared',
     RESET: 'buzz:reset',
-    RESETED: 'buzz:reseted'
+    RESETED: 'buzz:reseted',
+    LOCK: 'buzz:lock',
+    LOCKED: 'buzz:locked',
+    UNLOCK: 'buzz:unlock',
+    UNLOCKED: 'buzz:unlocked'
   },
   SCORE: {
     INC: 'score:inc',

@@ -99,15 +99,16 @@ function onChangeTeam() {
 function onBuzz() {
   const user = fetchUser();
   if (user) socket.emit(IoEvent.BUZZ.NEW, user);
-  hideBuzz();
+  hideBuzz('Buzzed');
 }
 
-function hideBuzz() {
+function hideBuzz(text) {
   const buzzDOM = document.getElementById('buzz_button');
   const buzzedDOM = document.getElementById('buzz_locked');
 
   buzzDOM.classList.add('hidden');
   buzzedDOM.classList.remove('hidden');
+  buzzedDOM.textContent = text;
 }
 
 function unhideBuzz() {
@@ -126,17 +127,16 @@ function onPlayerChange(teams) {
   selectBox.insertAdjacentHTML("beforeend", options);
 }
 
+
 socket.on(IoEvent.BUZZ.RESETED, function() {
   console.log('BUZZ RESETED');
-  // togglePlayView();
-  // toggleLoginView();
   location.reload();
 })
 
+socket.on(IoEvent.BUZZ.LOCKED, console.log('locked'))
 socket.on(IoEvent.BUZZ.CLEARED, unhideBuzz)
 socket.on(IoEvent.PLAYER.CHANGE, onPlayerChange)
 loginForm.addEventListener('submit', onLoginSubmit);
-// changeTeamButton.addEventListener('click', onChangeTeam);
 buzzButton.addEventListener('click', onBuzz);
 document.addEventListener('DOMContentLoaded', onStartPage);
 score.init();

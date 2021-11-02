@@ -11,10 +11,27 @@
         .uk-background-muted {
             background-image: url('assets/images/bg.jpg');
             background-size: cover;
-            
         }
         .uk-badge-danger {
             background:red;
+        }
+
+        .uk-button-warning {
+            background-color: #f0e350;
+            color: #fff;
+            border: 1px solid transparent
+        }
+
+        .uk-button-warning:focus,
+        .uk-button-warning:hover {
+            background-color: #eea539;
+            color: #fff
+        }
+
+        .uk-button-warning.uk-active,
+        .uk-button-warning:active {
+            background-color: #ecc321;
+            color: #fff
         }
     </style>
 
@@ -28,7 +45,8 @@
         <h1 class="uk-heading-divider">MQBC BUZZ Admin</h1>
         <div>
             <button id="clear_buzz" class="uk-button uk-button-primary">Clear Buzzes</button>
-            <button class="uk-button bg-yellow">Lock Buzz</button>
+            <button id='lock_buzz' class="uk-button uk-button-warning">Lock Buzz</button>
+            <button id='unlock_buzz' class="uk-button uk-button-secondary" hidden>Unlock Buzz</button>
             <button id="reset_buzz" class="uk-button uk-button-danger">Reset All</button>
         </div>
 
@@ -94,6 +112,8 @@
     <script src="/common/event.js"></script>
     <script src="/host/buzz.js"></script>
     <script src="/host/reset.js"></script>
+    <script src="/host/lock.js"></script>
+    <script src="/host/unlock.js"></script>
     <script src="/host/team.js"></script>
     <script src="/host/score.js"></script>
     <script src="/host/scoreonly.js"></script>

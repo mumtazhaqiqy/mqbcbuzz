@@ -73,6 +73,18 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
     console.log(data.getBuzzes());
   });
 
+  // When host click the lock button
+  socket.on(IoEvent.BUZZ.LOCK,() => {
+    io.emit(IoEvent.BUZZ.LOCKED)
+    logger.info('Buzz Locked');
+  });
+
+  // When host click the unlock button
+  socket.on(IoEvent.BUZZ.UNLOCK,() => {
+    io.emit(IoEvent.BUZZ.UNLOCKED)
+    logger.info('Buzz unlocked');
+  });
+
   // When host clear all buzzes
   socket.on(IoEvent.BUZZ.CLEAR, () => {
     data.resetBuzzes();
