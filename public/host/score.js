@@ -34,7 +34,7 @@ class Score {
 
   addEvent() {
     const allDec50Action = Array.from(this.scoreBody.querySelectorAll('.dec_50point'));
-    const allInc50Action = Array.from(this.scoreBody.querySelectorAll('.inc_50point'))
+    const allInc50Action = Array.from(this.scoreBody.querySelectorAll('.inc_50point'));
 
     const allDecAction = Array.from(this.scoreBody.querySelectorAll('.dec_point'));
     const allIncAction = Array.from(this.scoreBody.querySelectorAll('.inc_point'));
@@ -48,7 +48,7 @@ class Score {
     allInc50Action.map(plus => {
       const tr = plus.closest('tr');
       const id = tr.id;
-      // console.log({ id });
+      // console.log({ id  });
       plus.addEventListener('click', () => this.increment50Point(id));
     });
 

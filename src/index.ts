@@ -52,10 +52,19 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
     console.log(data.getTeams());
   });
 
+  // On Host kick a player
+  socket.on(IoEvent.PLAYER.KICK, (user: { id: string, team: string }) => {
+    data.removeUser(user.id, user.team);
+    // trigger player change to reload teams for other player
+    io.emit(IoEvent.PLAYER.CHANGE, data.getData().teams);
+    // trigger score change to reload score for other player if new player is in a new team
+    io.emit(IoEvent.SCORE.CHANGE, data.getData().teams);
+  })
+
   // On player quit the game
   socket.on(IoEvent.PLAYER.EXIT, (user: { id: string; name: string; team: string; }) => {
     data.removeUser(user.id, user.team);
-    data.removeEmptyTeams();
+    // data.removeEmptyTeams();
     // trigger player change to reload teams for other player
     io.emit(IoEvent.PLAYER.CHANGE, data.getData().teams);
     // trigger score change to reload score for other player if new player is in a new team

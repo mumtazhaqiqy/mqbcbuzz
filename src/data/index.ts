@@ -85,7 +85,7 @@
         if(index == 0){ 
           var now = '00'
         } else {
-          const lastTimeStamp = Array.from(this.milis)[index - 1]
+          const lastTimeStamp = Array.from(this.milis)[0]
           const currTimeStamp = Array.from(this.milis)[index]
           var between = Math.abs((currTimeStamp - lastTimeStamp) / 1);
           var now = between.toString()

@@ -33,6 +33,9 @@
             background-color: #ecc321;
             color: #fff
         }
+        .uk-badge {
+            cursor:pointer;
+        }
     </style>
 
     <!-- UIkit JS -->
@@ -77,9 +80,9 @@
                 <div id='team_list'>
                     <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
                     <div class="uk-heading-bullet uk-text-bold"><%= team.name %></div>
-                    <div class="uk-text-small uk-margin-left">
+                    <div title="<%= team.name %>" class="uk-text-small uk-margin-left">
                         <% team.members.forEach(function(user){ %>
-                        [<%= user.name %>]
+                        <span style="background: #35bf4c;" id="<%= user.id %>" class="uk-badge kick-user"><%= user.name %></span>
                         <% }) %>
                     </div>
                     <% })%>

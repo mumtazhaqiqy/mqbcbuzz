@@ -22,6 +22,8 @@ export const IoEvent = {
     NEW: 'player:new',
     NEWTEAM: 'player:newteam',
     EXIT: 'player:exit',
+    KICK: 'player:kick',
+    KICKED: 'player:kicked',
     CHANGE: 'player:change',
     BUZZED: 'player:buzzed',
   }
