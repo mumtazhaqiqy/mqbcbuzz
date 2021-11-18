@@ -59,6 +59,8 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
     io.emit(IoEvent.PLAYER.CHANGE, data.getData().teams);
     // trigger score change to reload score for other player if new player is in a new team
     io.emit(IoEvent.SCORE.CHANGE, data.getData().teams);
+    // trigger kicked player buzz page to reload 
+    io.emit(IoEvent.PLAYER.KICKED, user.id);
   })
 
   // On player quit the game

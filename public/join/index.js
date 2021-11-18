@@ -11,6 +11,7 @@ const buzzButton = document.querySelector('#buzz_button');
 // const personalInfo = document.querySelector('#info_me');
 const nameInfo = document.querySelector('#info_name');
 const teamInfo = document.querySelector('#info_team');
+const audiobuzz = new Audio('/assets/buzz.wav');
 const USER_KEY = 'USER';
 
 function forgeOptions(teams) {
@@ -99,6 +100,7 @@ function onChangeTeam() {
 function onBuzz() {
   const user = fetchUser();
   if (user) socket.emit(IoEvent.BUZZ.NEW, user);
+  audiobuzz.play();
   hideBuzz('Buzzed');
 }
 
@@ -127,13 +129,21 @@ function onPlayerChange(teams) {
   selectBox.insertAdjacentHTML("beforeend", options);
 }
 
+socket.on(IoEvent.PLAYER.KICKED, function(id) {
+  // console.log(id);
+  // console.log(user.id)
+  const user = fetchUser();
+  if(user.id == id){
+    // console.log('PLAYER.KICKED')
+    location.reload();
+  }
+})
 
 socket.on(IoEvent.BUZZ.RESETED, function() {
   console.log('BUZZ RESETED');
   location.reload();
 })
 
-socket.on(IoEvent.BUZZ.LOCKED, console.log('locked'))
 socket.on(IoEvent.BUZZ.CLEARED, unhideBuzz)
 socket.on(IoEvent.PLAYER.CHANGE, onPlayerChange)
 loginForm.addEventListener('submit', onLoginSubmit);

@@ -34,9 +34,6 @@ class Teams {
   }
 
   kickUser(id, team) {
-    console.log(id);
-    console.log(team);
-
     class User {
       constructor(id, team){
         this.id = id;
@@ -56,7 +53,7 @@ class Teams {
     return `
       <div class="uk-heading-bullet uk-text-bold">${team.name}</div>
       <div title='${team.name}' class="uk-text-small uk-margin-left">
-        ${team.members.map(member => `<span style="background: #35bf4c;" id="${member.id}" class="uk-badge kick-user">${member.name}</span>`).join('')}
+        ${team.members.map(member => `<span style="background: #ea4141;" id="${member.id}" class="uk-badge kick-user">${member.name}</span>&nbsp;`).join('')}
       </div>
     `
   }

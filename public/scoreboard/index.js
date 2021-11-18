@@ -1,4 +1,5 @@
 const socket = io();
+const audiobuzz = new Audio('/assets/buzz.wav');
 var toggleBuzz = true
 var allteams = []
 
@@ -50,7 +51,7 @@ socket.on(IoEvent.PLAYER.BUZZED, (user) => {
             podiumBorderDOM.forEach(el => {
                 el.classList.add('glow'+teamIndex)
             })
-    
+            audiobuzz.play();
             toggleBuzz = false
 
         } catch(err) {
