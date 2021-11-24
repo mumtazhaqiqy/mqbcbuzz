@@ -23,8 +23,8 @@ class Scoreonly {
     createNode(team) {
       return `
          <tr id="${team.name}">
-          <td style="width: 80%;" >${team.name}</td>
-          <td style="width: 20%;" >${team.point}</td>
+          <td style="width: 80%; font-size:150%" ><strong>${team.name}</strong></td>
+          <td style="width: 20%; font-size:150%" ><strong>${team.point}</strong></td>
         </tr>
       `
     }
