@@ -46,6 +46,13 @@
       }, [])
     }
 
+    pointInput(team_name: string, point: number) {
+      const team = this.teams.find(team => team.name == team_name)
+      if(team) {
+        team.point == point;
+      }
+    }
+
     incrementPoint(team_name: string) {
       const team = this.teams.find(team => team.name === team_name)
       if (team) {

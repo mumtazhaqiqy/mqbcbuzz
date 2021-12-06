@@ -4,7 +4,7 @@
     "crash": "kill-port 3000"
   },
   "watch": ["src"],
-  "ext": "ts",
+  "ext": "ts, ejs",
   "exec": "node --inspect -r ts-node/register ./src/index.ts",
   "delay": "2000"
 }

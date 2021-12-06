@@ -32,16 +32,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- main -->
 <div class="w3layouts-main">
 	<div class="bg-layer">
-		<% data.teams.forEach(function(team, index){ %>
+		<div class="header-main">
+
+			<div class="userFrame1 border1 glow">
+				<div class="block"></div>
+			</div>
+			<div class="userFrame2 border1 ">
+				<div class="block"></div>
+			</div>
+			<div class="userFrame3 border1 ">
+				<div class="block"></div>
+			</div>
+
+			<div class="header-left-bottom">
+				<div class="podium-area1">
+					<div class="score-podium">0</div>
+					<div class="podium-light"></div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- <% data.teams.forEach(function(team, index){ %>
 		<div id="<%= team.name %>" class="header-main">
 			<div class="header-left-bottom">
-				<div class="podium-area<%= index %>">
+				<div>
 					<div id="score-<%= index %>" class="score-podium"><%= team.point %></div>
 					<div id="podium-<%= index %>" class="color<%= index %> podium-light coloe<%= team.name %>"></div>
 				</div>
 			</div>
 		</div>
-		<% }); %>
+		<% }); %> -->
 	</div>
 
 </div>

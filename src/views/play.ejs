@@ -92,7 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<h2 class="scoreboard-title">Scoreboard</h2>
                 <table id="score_list" class="list-score">
                     <tbody>
-                    <% data.teams.sort((prev, curr) => curr.point - prev.point).forEach(function(team){ %>
+                    <% data.teams.forEach(function(team){ %>
                     <tr>
                         <td class="list-score-name"><%= team.name %></td>
                         <td class="list-score-poin"><%= team.point %></td>

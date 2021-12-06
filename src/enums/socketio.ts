@@ -12,6 +12,7 @@ export const IoEvent = {
     UNLOCKED: 'buzz:unlocked'
   },
   SCORE: {
+    POINT: 'score:point',
     INC: 'score:inc',
     DEC: 'score:dec',
     INC50: 'score:inc50',

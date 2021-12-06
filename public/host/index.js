@@ -14,7 +14,7 @@ const addTeamForm = buzzDOM.querySelector('#new_team_form');
 
 function passwordPrompt() {
   const password = prompt("Enter in the password");
-    if (password=="mqbc123") {
+    if (password=="secure-mqbcpass") {
       // console.log('Oke')
     }
     else 

@@ -139,6 +139,13 @@ socket.on(IoEvent.PLAYER.KICKED, function(id) {
   }
 })
 
+function lockBuzz(){
+  hideBuzz('Locked');
+}
+socket.on(IoEvent.BUZZ.LOCKED, lockBuzz)
+socket.on(IoEvent.BUZZ.UNLOCKED, unhideBuzz)
+
+
 socket.on(IoEvent.BUZZ.RESETED, function() {
   console.log('BUZZ RESETED');
   location.reload();
