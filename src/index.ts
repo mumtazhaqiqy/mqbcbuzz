@@ -43,13 +43,17 @@ io.on(IoEvent.CONNECTION, (socket: Socket) => {
 
   // On Host add new team
   socket.on(IoEvent.PLAYER.NEWTEAM, (team: {teamName:string}) => {
-    data.addTeam(team.teamName);
-    // trigger player change to reload teams for other player
-    io.emit(IoEvent.PLAYER.CHANGE, data.getData().teams);
-    //trigger score change
-    io.emit(IoEvent.SCORE.CHANGE, data.getData().teams);
-    logger.info(`add new team ${team.teamName}`);
-    console.log(data.getTeams());
+    console.log(data.getTeams().length);
+    if(data.getTeams().length < 6) {
+      data.addTeam(team.teamName);
+      // trigger player change to reload teams for other player
+      io.emit(IoEvent.PLAYER.CHANGE, data.getData().teams);
+      //trigger score change
+      io.emit(IoEvent.SCORE.CHANGE, data.getData().teams);
+      logger.info(`add new team ${team.teamName}`);
+    } else {
+      logger.info('cant process, teams more than 6');
+    }
   });
 
   // On Host kick a player
