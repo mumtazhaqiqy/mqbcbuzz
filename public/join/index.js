@@ -142,6 +142,7 @@ socket.on(IoEvent.PLAYER.KICKED, function(id) {
 function lockBuzz(){
   hideBuzz('Locked');
 }
+
 socket.on(IoEvent.BUZZ.LOCKED, lockBuzz)
 socket.on(IoEvent.BUZZ.UNLOCKED, unhideBuzz)
 
@@ -151,7 +152,7 @@ socket.on(IoEvent.BUZZ.RESETED, function() {
   location.reload();
 })
 
-socket.on(IoEvent.BUZZ.CLEARED, unhideBuzz)
+// socket.on(IoEvent.BUZZ.CLEARED, unhideBuzz)
 socket.on(IoEvent.PLAYER.CHANGE, onPlayerChange)
 loginForm.addEventListener('submit', onLoginSubmit);
 buzzButton.addEventListener('click', onBuzz);
