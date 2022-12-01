@@ -1,5 +1,4 @@
 import * as fastify from 'fastify';
-import fastifyBasicAuth from 'fastify-basic-auth';
 import { Data } from '../data';
 import { IApplication } from '../config';
 
@@ -20,6 +19,10 @@ export const registerRoutes = (server: fastify.FastifyInstance, opts: IOpts, don
   });
   server.get('/scoreboard2', (request, reply) => {
     reply.view('/src/views/scoreboard2.ejs', { config: opts.config, data: opts.data.getData() });
+  });
+  server.get('/team/:id', (request, reply) => {
+    reply.view('/src/views/team.ejs', { config: opts.config, data: opts.data.getData(), param: request.params.id});
+    console.log(request.params.id)
   });
   done();
 };

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BuzzIT</title>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="" />
+<style>
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4684ee;
+}
+
+.score {
+  color: #fff;
+
+  font-family: Consolas, Menlo, Monaco, monospace;
+  font-weight: bold;
+  font-size: 30vh;
+
+  opacity: 0.7;
+}
+
+</style>
+</head>
+<body>
+<!-- main -->
+<div>
+    <div class="score"></div>
+</div>
+
+<!-- //main -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="/common/event.js"></script>
+
+<script>
+    const socket = io();
+    var pathArray = window.location.pathname.split('/');
+    var currentTeam = pathArray[2];
+    var scoreDOM = document.querySelector("#score");
+
+    function doWhenScoreChange(teams) {
+        teams.forEach(element => {
+            if(element.name == currentTeam) {
+                const counters = document.querySelectorAll('.score');
+                const speed = 200;
+
+                counters.forEach( counter => {
+                const animate = () => {
+                    const value = element.point;
+                    const data = +counter.innerText;
+                    
+                    const time = value / speed;
+                    if(data < value) {
+                        counter.innerText = Math.ceil(data + time);
+                        setTimeout(animate, 1);
+                        }else{
+                        counter.innerText = value;
+                        }   
+                }
+                
+                animate();
+                });
+            }
+        });
+    }
+
+    socket.on(IoEvent.SCORE.CHANGE, (teams) => doWhenScoreChange(teams))
+
+</script>
+
+</body>
+</html>
+
+    
