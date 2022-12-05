@@ -98,14 +98,16 @@ body {
     var pathArray = window.location.pathname.split('/');
     var currentTeam = pathArray[2];
     var scoreDOM = document.querySelector("#score");
-
     function doWhenScoreChange(teams) {
         teams.forEach(element => {
             if(element.name == currentTeam) {
-                const counters = document.querySelectorAll('.score');
-                const speed = 200;
+                const counter = document.querySelector('.score');
+                const speed = 100;
+		
+		if(counter.innerText < 0) {
+                  counter.innerText = element.point;
+                }
 
-                counters.forEach( counter => {
                 const animate = () => {
                     const value = element.point;
                     const data = +counter.innerText;
@@ -114,16 +116,21 @@ body {
                     if(data < value) {
                         counter.innerText = Math.ceil(data + time);
                         setTimeout(animate, 1);
-                        }else{
+                        }
+                    else{
                         counter.innerText = value;
-                        }   
+                        }  
+                     
                 }
                 
-                animate();
-                });
+                if(element.point > -1){
+                  animate();
+                } else {
+                  counter.innerText = element.point;
+                }
             }
         });
-    }
+   }
 
     socket.on(IoEvent.SCORE.CHANGE, (teams) => doWhenScoreChange(teams))
 
