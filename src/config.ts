@@ -12,7 +12,7 @@ const config = {
   },
   server: {
     address: env('HOST', '0.0.0.0'),
-    port: int(env('PORT', '3000')),
+    port: int(env('PORT', '80')),
     env: env('NODE_ENV', ENVIRONMENT.DEV),
   },
   application: {

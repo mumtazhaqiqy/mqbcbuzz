@@ -12,7 +12,7 @@ class Scoreonly {
   
     forgeList(teams) {
       return teams
-        .sort((prev, curr) => curr.point - prev.point)
+        //.sort((prev, curr) => curr.point - prev.point)
         .map(team => this.createNode(team)).join('');
     }
   
